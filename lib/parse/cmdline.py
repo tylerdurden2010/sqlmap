@@ -757,6 +757,7 @@ def cmdLineParser():
                           help=SUPPRESS_HELP)
 
         parser.add_option("--run-case", dest="runCase", help=SUPPRESS_HELP)
+        parser.add_option("--error-info",dest="errorInfo")
 
         parser.add_option_group(target)
         parser.add_option_group(request)

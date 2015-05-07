@@ -1033,7 +1033,12 @@ class Connect(object):
 
         kb.maxConnectionsFlag = re.search(MAX_CONNECTIONS_REGEX, page or "", re.I) is not None
         kb.permissionFlag = re.search(PERMISSION_DENIED_REGEX, page or "", re.I) is not None
-
+        if(page):
+            logger.info(page[:8])
+        #match = re.search("(?P<name>\w+)=%s(?P<value>.+?)%s" % (_, _), page)
+        match = re.search("%s" % (conf.errorInfo),page)
+        if match:
+            raw_input("Error Match %s" %(conf.errorInfo))
         if content or response:
             return page, headers
 
